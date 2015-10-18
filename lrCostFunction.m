@@ -36,9 +36,24 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
-g = sigmoid(X * theta)
 
-J = (1 / m) * (-y * log(theta * X) - (1 - y) * log(1 - theta * X));
+%		Logistic regression cost function :
+
+g = sigmoid(X * theta);
+
+J = (-1 / m) * (y * log(g) + ((1 - log(g)) * (1 - y)));
+
+%		Gradient Descent :
+
+gradientDescent = (1 / m) * (log(g) - y) * transpose(X);
+
+%		Regularization :
+
+thetas = 0;
+
+
+
+
 
 
 
